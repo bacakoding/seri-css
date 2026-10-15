@@ -1,0 +1,24 @@
+body {
+  background-color: #f5efe6;
+  color: #3b2f2f;
+}
+
+#judul-utama {
+  color: #7a4a2b;
+}
+
+.kartu {
+  background-color: #ffffff;
+  border: 1px solid #8a7360;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.unggulan {
+  border-color: #7a4a2b;
+  border-width: 2px;
+}
+
+p.unggulan {
+  font-style: italic;
+}

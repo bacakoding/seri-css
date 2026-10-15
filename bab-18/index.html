@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Uji Performa Render - Katalog Buku</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <h1>Uji Performa Render</h1>
+      <p>Rekam di DevTools (tab Performance), lalu arahkan kursor ke kedua kelompok kartu.</p>
+
+      <h2>Versi A: naik dengan margin (memaksa layout)</h2>
+      <div class="uji uji-margin">
+        <div class="kartu"><h3>Laut Bercerita</h3><p>Novel tentang keluarga yang kehilangan.</p></div>
+        <div class="kartu"><h3>Bumi Manusia</h3><p>Kisah awal pergerakan di Hindia Belanda.</p></div>
+        <div class="kartu"><h3>Pulang</h3><p>Tentang perjalanan kembali ke rumah masa kecil.</p></div>
+      </div>
+
+      <h2>Versi B: naik dengan transform (melewati layout)</h2>
+      <div class="uji uji-transform">
+        <div class="kartu"><h3>Laut Bercerita</h3><p>Novel tentang keluarga yang kehilangan.</p></div>
+        <div class="kartu"><h3>Bumi Manusia</h3><p>Kisah awal pergerakan di Hindia Belanda.</p></div>
+        <div class="kartu"><h3>Pulang</h3><p>Tentang perjalanan kembali ke rumah masa kecil.</p></div>
+      </div>
+
+      <h2>Versi C: daftar panjang dengan content-visibility</h2>
+      <div class="daftar-panjang">
+        <div class="kartu"><h3>Buku 1</h3><p>Isi kartu untuk menguji pekerjaan di luar layar.</p></div>
+        <div class="kartu"><h3>Buku 2</h3><p>Isi kartu untuk menguji pekerjaan di luar layar.</p></div>
+        <div class="kartu"><h3>Buku 3</h3><p>Isi kartu untuk menguji pekerjaan di luar layar.</p></div>
+        <div class="kartu"><h3>Buku 4</h3><p>Isi kartu untuk menguji pekerjaan di luar layar.</p></div>
+        <div class="kartu"><h3>Buku 5</h3><p>Isi kartu untuk menguji pekerjaan di luar layar.</p></div>
+        <div class="kartu"><h3>Buku 6</h3><p>Isi kartu untuk menguji pekerjaan di luar layar.</p></div>
+      </div>
+    </main>
+  </body>
+</html>

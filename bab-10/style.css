@@ -1,0 +1,69 @@
+:root {
+  --warna-latar: #f5efe6;
+  --warna-teks: #3b2f2f;
+  --warna-utama: #7a4a2b;
+  --warna-kartu: #ffffff;
+  --jarak-kecil: 0.5rem;
+  --jarak-sedang: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --warna-latar: #1f1a17;
+    --warna-teks: #f5efe6;
+    --warna-utama: #d9a578;
+    --warna-kartu: #2b241f;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: var(--warna-latar);
+  color: var(--warna-teks);
+  margin: 0;
+  padding: var(--jarak-sedang);
+}
+
+#judul-utama {
+  font-size: 2.25rem;
+  color: var(--warna-utama);
+  margin: 0 0 var(--jarak-sedang);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 var(--jarak-kecil);
+}
+
+.kartu {
+  position: relative;
+  background-color: var(--warna-kartu);
+  border: 1px solid var(--warna-utama);
+  padding: var(--jarak-sedang);
+  margin-bottom: var(--jarak-kecil);
+  max-width: 480px;
+}
+
+.kartu.unggulan {
+  --warna-utama: #1d4e89;
+  border-width: 2px;
+}
+
+.label {
+  position: absolute;
+  top: var(--jarak-kecil);
+  right: var(--jarak-kecil);
+  background-color: var(--warna-utama);
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}

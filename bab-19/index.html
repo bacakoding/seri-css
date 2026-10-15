@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Katalog Buku</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="lewati-ke-konten" href="#konten">Lewati ke konten</a>
+    <header class="header">
+      <h1 class="header__judul">Katalog Buku</h1>
+      <nav class="nav">
+        <ul class="nav__daftar">
+          <li><a class="nav__tautan" href="#">Beranda</a></li>
+          <li><a class="nav__tautan" href="#">Katalog</a></li>
+          <li><a class="nav__tautan" href="#">Tentang</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="konten" class="katalog">
+      <div class="kartu">
+        <img class="kartu__sampul" src="sampul.svg" alt="Sampul buku Laut Bercerita">
+        <h2 class="kartu__judul">Laut Bercerita</h2>
+        <p class="kartu__isi">Novel tentang keluarga yang kehilangan.</p>
+        <a class="kartu__tautan" href="#">Lihat detail <span class="sr-only">buku Laut Bercerita</span></a>
+      </div>
+      <div class="kartu kartu--unggulan">
+        <span class="kartu__label">Pilihan Editor</span>
+        <img class="kartu__sampul" src="sampul.svg" alt="Sampul buku Bumi Manusia">
+        <h2 class="kartu__judul">Bumi Manusia</h2>
+        <p class="kartu__isi">Kisah awal pergerakan di Hindia Belanda.</p>
+        <a class="kartu__tautan" href="#">Lihat detail <span class="sr-only">buku Bumi Manusia</span></a>
+      </div>
+    </main>
+  </body>
+</html>

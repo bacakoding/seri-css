@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "katalog konten"
+    "footer footer";
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  gap: 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #f5efe6;
+  color: #3b2f2f;
+}
+
+header { grid-area: header; border-bottom: 2px solid #7a4a2b; padding-bottom: 0.5rem; }
+aside  { grid-area: katalog; }
+main   { grid-area: konten; }
+footer { grid-area: footer; border-top: 1px solid #8a7360; padding-top: 0.5rem; }
+
+#judul-utama {
+  font-size: 2.25rem;
+  color: #7a4a2b;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem;
+}
+
+.rak {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.kartu {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #8a7360;
+  padding: 1rem;
+}
+
+.kartu.unggulan {
+  grid-column: span 2;
+  border-color: #7a4a2b;
+  border-width: 2px;
+}
+
+.label {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #7a4a2b;
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}

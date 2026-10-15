@@ -1,0 +1,229 @@
+:root {
+  --warna-latar: #f5efe6;
+  --warna-teks: #3b2f2f;
+  --warna-utama: #7a4a2b;
+  --warna-kartu: #ffffff;
+  --warna-kartu-hover: #fffaf3;
+  --warna-fokus: #1d4e89;
+  --warna-garis-kartu: #8a7360;
+  --jarak-kecil: 0.5rem;
+  --jarak-sedang: 1rem;
+  --ukuran-judul: clamp(1.75rem, 4vw, 2.25rem);
+  --ukuran-subjudul: clamp(1.25rem, 3vw, 1.5rem);
+}
+
+@font-face {
+  font-family: "Lora Katalog";
+  src: url("fonts/Lora-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora Katalog";
+  src: url("fonts/Lora-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  font-family: "Lora Katalog", Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: var(--warna-latar);
+  color: var(--warna-teks);
+  margin: 0;
+  padding: var(--jarak-sedang);
+}
+
+.lewati-ke-konten {
+  position: absolute;
+  top: -100px;
+  left: var(--jarak-kecil);
+  background-color: var(--warna-kartu);
+  color: var(--warna-utama);
+  padding: var(--jarak-kecil) var(--jarak-sedang);
+  z-index: 100;
+}
+
+.lewati-ke-konten:focus {
+  top: var(--jarak-kecil);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+header {
+  border-bottom: 2px solid var(--warna-utama);
+  padding-bottom: var(--jarak-kecil);
+}
+
+#judul-utama {
+  font-size: var(--ukuran-judul);
+  color: var(--warna-utama);
+  margin: 0;
+}
+
+.menu {
+  display: flex;
+  gap: var(--jarak-sedang);
+  list-style: none;
+  margin: var(--jarak-kecil) 0 0;
+  padding: 0;
+}
+
+.menu a {
+  display: inline-block;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 0.25rem 0.5rem;
+  color: var(--warna-utama);
+  font-weight: bold;
+  text-decoration: none;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--warna-fokus);
+  outline-offset: 2px;
+}
+
+h2 {
+  font-size: var(--ukuran-subjudul);
+  font-weight: bold;
+  margin: var(--jarak-sedang) 0 var(--jarak-kecil);
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background-color: var(--warna-utama);
+  margin-top: 0.25rem;
+}
+
+.daftar {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--jarak-sedang);
+  max-width: 480px;
+}
+
+.daftar li {
+  padding: var(--jarak-kecil) var(--jarak-sedang);
+}
+
+.daftar li:nth-child(even) {
+  background-color: #efe6d8;
+}
+
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kartu {
+  position: relative;
+  background-color: var(--warna-kartu);
+  border: 1px solid var(--warna-garis-kartu);
+  padding: var(--jarak-sedang);
+  margin-bottom: var(--jarak-kecil);
+  max-width: 480px;
+  animation: muncul 0.4s ease-out both;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.kartu:hover {
+  background-color: var(--warna-kartu-hover);
+  transform: translateY(-4px);
+}
+
+.kartu.unggulan {
+  border-width: 2px;
+  border-color: var(--warna-utama);
+}
+
+.kartu p {
+  max-width: 65ch;
+}
+
+.sampul {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  margin-bottom: var(--jarak-kecil);
+}
+
+.unggulan::before {
+  content: "★ ";
+  color: var(--warna-utama);
+}
+
+.label {
+  position: absolute;
+  top: var(--jarak-kecil);
+  right: var(--jarak-kecil);
+  background-color: var(--warna-utama);
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+@media (prefers-contrast: more) {
+  .kartu {
+    border-color: var(--warna-teks);
+  }
+}
+
+@media (forced-colors: active) {
+  .kartu {
+    border: 2px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kartu {
+    animation: none;
+    transition: none;
+  }
+
+  .kartu:hover {
+    transform: none;
+  }
+
+  .menu a {
+    transition: none;
+  }
+}

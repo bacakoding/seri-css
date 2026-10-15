@@ -1,0 +1,302 @@
+@layer reset, dasar, komponen, utilitas;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  p,
+  ul {
+    margin: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@layer dasar {
+  /* Lapis 1: primitif. Nilai mentah. Hanya dirujuk oleh lapis 2. */
+  :root {
+    --cokelat-900: #3b2f2f;
+    --cokelat-700: #7a4a2b;
+    --cokelat-300: #d9a578;
+    --krem-50: #fffaf3;
+    --krem-100: #f5efe6;
+    --krem-200: #efe6d8;
+    --putih: #ffffff;
+    --abu-hangat-500: #8a7360;
+    --biru-700: #1d4e89;
+    --biru-300: #8fb4e8;
+    --gelap-900: #1f1a17;
+    --gelap-800: #2b241f;
+    --gelap-750: #342b25;
+    --gelap-700: #3a3029;
+  }
+
+  /* Lapis 2: semantik. Makna dalam UI. Komponen hanya memakai lapis ini. */
+  :root {
+    --warna-teks: var(--cokelat-900);
+    --warna-latar: var(--krem-100);
+    --warna-aksen: var(--cokelat-700);
+    --warna-teks-di-aksen: var(--putih);
+    --warna-permukaan: var(--putih);
+    --warna-permukaan-sorot: var(--krem-50);
+    --warna-permukaan-selang: var(--krem-200);
+    --warna-fokus: var(--biru-700);
+    --warna-batas: var(--abu-hangat-500);
+
+    --jarak-kecil: 0.5rem;
+    --jarak-sedang: 1rem;
+    --ukuran-judul: clamp(1.75rem, 4vw, 2.25rem);
+    --ukuran-subjudul: clamp(1.25rem, 3vw, 1.5rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --warna-teks: var(--krem-100);
+      --warna-latar: var(--gelap-900);
+      --warna-aksen: var(--cokelat-300);
+      --warna-teks-di-aksen: var(--gelap-900);
+      --warna-permukaan: var(--gelap-800);
+      --warna-permukaan-sorot: var(--gelap-700);
+      --warna-permukaan-selang: var(--gelap-750);
+      --warna-fokus: var(--biru-300);
+      --warna-batas: var(--abu-hangat-500);
+    }
+  }
+
+  @font-face {
+    font-family: "Lora Katalog";
+    src: url("fonts/Lora-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Lora Katalog";
+    src: url("fonts/Lora-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  body {
+    font-family: "Lora Katalog", Georgia, "Times New Roman", serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: var(--warna-latar);
+    color: var(--warna-teks);
+    padding: var(--jarak-sedang);
+  }
+
+  a:focus-visible {
+    outline: 3px solid var(--warna-fokus);
+    outline-offset: 2px;
+  }
+}
+
+@layer komponen {
+  .lewati-ke-konten {
+    position: absolute;
+    top: -100px;
+    inset-inline-start: var(--jarak-kecil);
+    background-color: var(--warna-permukaan);
+    color: var(--warna-aksen);
+    padding: var(--jarak-kecil) var(--jarak-sedang);
+    z-index: 100;
+  }
+
+  .lewati-ke-konten:focus {
+    top: var(--jarak-kecil);
+  }
+
+  .header {
+    border-bottom: 2px solid var(--warna-aksen);
+    padding-bottom: var(--jarak-kecil);
+  }
+
+  .header__judul {
+    font-size: var(--ukuran-judul);
+    color: var(--warna-aksen);
+  }
+
+  .nav__daftar {
+    display: flex;
+    gap: var(--jarak-sedang);
+    list-style: none;
+    margin-top: var(--jarak-kecil);
+  }
+
+  .nav__tautan {
+    display: inline-block;
+    min-height: 24px;
+    min-width: 24px;
+    padding: 0.25rem 0.5rem;
+    color: var(--warna-aksen);
+    font-weight: bold;
+    text-decoration: none;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .nav__tautan:hover {
+    text-decoration: underline;
+  }
+
+  @keyframes muncul {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Token komponen: nama lapis 3, hanya hidup di dalam .kartu. Dirujuk dari lapis 2. */
+  .kartu {
+    --kartu-latar: var(--warna-permukaan);
+    --kartu-latar-sorot: var(--warna-permukaan-sorot);
+    --kartu-garis: var(--warna-batas);
+    --kartu-garis-lebar: 1px;
+
+    position: relative;
+    background-color: var(--kartu-latar);
+    border: var(--kartu-garis-lebar) solid var(--kartu-garis);
+    padding: var(--jarak-sedang);
+    margin-bottom: var(--jarak-kecil);
+    max-width: 480px;
+    animation: muncul 0.4s ease-out both;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .kartu:hover {
+    background-color: var(--kartu-latar-sorot);
+    transform: translateY(-4px);
+  }
+
+  /* Varian hanya mengganti token, tidak menulis ulang properti. */
+  .kartu--unggulan {
+    --kartu-garis: var(--warna-aksen);
+    --kartu-garis-lebar: 2px;
+  }
+
+  .kartu--unggulan::before {
+    content: "★ ";
+    color: var(--warna-aksen);
+  }
+
+  .kartu__judul {
+    font-size: var(--ukuran-subjudul);
+    font-weight: bold;
+    margin-block-end: var(--jarak-kecil);
+  }
+
+  .kartu__isi {
+    max-width: 65ch;
+  }
+
+  .kartu__sampul {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    margin-block-end: var(--jarak-kecil);
+  }
+
+  .kartu__label {
+    position: absolute;
+    inset-block-start: var(--jarak-kecil);
+    inset-inline-end: var(--jarak-kecil);
+    background-color: var(--warna-aksen);
+    color: var(--warna-teks-di-aksen);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .katalog {
+    container-type: inline-size;
+  }
+
+  .kartu:has(.kartu__tautan:focus-visible) {
+    box-shadow: 0 0 0 3px var(--warna-fokus);
+  }
+
+  @container (min-width: 520px) {
+    .kartu {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      column-gap: var(--jarak-sedang);
+    }
+
+    .kartu__sampul {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+    }
+
+    .kartu__judul,
+    .kartu__isi,
+    .kartu__tautan {
+      grid-column: 2;
+    }
+  }
+
+  @media (prefers-contrast: more) {
+    .kartu {
+      --kartu-garis: var(--warna-teks);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .kartu {
+      border: 2px solid CanvasText;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kartu {
+      animation: none;
+      transition: none;
+    }
+
+    .kartu:hover {
+      transform: none;
+    }
+
+    .nav__tautan {
+      transition: none;
+    }
+  }
+
+  .footer {
+    margin-block-start: var(--jarak-sedang);
+    padding-block-start: var(--jarak-kecil);
+    border-block-start: 1px solid var(--warna-batas);
+    color: var(--warna-teks);
+    font-size: 0.875rem;
+  }
+}
+
+@layer utilitas {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

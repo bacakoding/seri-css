@@ -1,0 +1,60 @@
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #f5efe6;
+  color: #3b2f2f;
+  margin: 0;
+  padding: 1rem;
+}
+
+p {
+  color: #5a4a3a;
+}
+
+.kartu p {
+  color: #3b2f2f;
+}
+
+#judul-utama {
+  font-size: 2.25rem;
+  color: #7a4a2b;
+  margin: 0 0 1rem;
+}
+
+.kartu {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #8a7360;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  max-width: 480px;
+}
+
+.kartu.unggulan {
+  border-color: #7a4a2b;
+  border-width: 2px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem;
+}
+
+/* Urutan ditulis terakhir, tapi spesifisitas 0-1-1 sama dengan .kartu p,
+   jadi aturan ini menang karena urutannya. */
+p.unggulan {
+  color: #7a4a2b;
+  font-style: italic;
+}
+
+.label {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #7a4a2b;
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}

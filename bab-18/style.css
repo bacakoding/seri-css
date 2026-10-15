@@ -1,0 +1,89 @@
+@layer reset, dasar, komponen;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+}
+
+@layer dasar {
+  :root {
+    --warna-latar: #f5efe6;
+    --warna-teks: #3b2f2f;
+    --warna-aksen: #7a4a2b;
+    --warna-permukaan: #ffffff;
+    --warna-batas: #8a7360;
+    --jarak-sedang: 1rem;
+    --jarak-kecil: 0.5rem;
+  }
+
+  @font-face {
+    font-family: "Lora Katalog";
+    src: url("fonts/Lora-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  body {
+    font-family: "Lora Katalog", Georgia, "Times New Roman", serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: var(--warna-latar);
+    color: var(--warna-teks);
+    padding: var(--jarak-sedang);
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin: var(--jarak-sedang) 0 var(--jarak-kecil);
+  }
+}
+
+@layer komponen {
+  .uji {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jarak-sedang);
+  }
+
+  .kartu {
+    flex: 1 1 240px;
+    background-color: var(--warna-permukaan);
+    border: 1px solid var(--warna-batas);
+    padding: var(--jarak-sedang);
+    transition: transform 0.2s ease, margin-top 0.2s ease;
+  }
+
+  /* Versi A: setiap perubahan margin memaksa layout ulang. */
+  .uji-margin .kartu:hover {
+    margin-top: -4px;
+  }
+
+  /* Versi B: transform tidak mengubah aliran, jadi layout tidak dihitung ulang. */
+  .uji-transform .kartu:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Versi C: browser melewati layout dan paint untuk kartu di luar layar. */
+  .daftar-panjang .kartu {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 160px;
+    margin-bottom: var(--jarak-kecil);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kartu {
+      transition: none;
+    }
+  }
+}

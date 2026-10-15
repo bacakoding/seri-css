@@ -1,0 +1,121 @@
+:root {
+  --warna-latar: #f5efe6;
+  --warna-teks: #3b2f2f;
+  --warna-utama: #7a4a2b;
+  --warna-kartu: #ffffff;
+  --warna-fokus: #1d4e89;
+  --jarak-kecil: 0.5rem;
+  --jarak-sedang: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: var(--warna-latar);
+  color: var(--warna-teks);
+  margin: 0;
+  padding: var(--jarak-sedang);
+}
+
+header {
+  border-bottom: 2px solid var(--warna-utama);
+  padding-bottom: var(--jarak-kecil);
+}
+
+#judul-utama {
+  font-size: 2.25rem;
+  color: var(--warna-utama);
+  margin: 0;
+}
+
+.menu {
+  display: flex;
+  gap: var(--jarak-sedang);
+  list-style: none;
+  margin: var(--jarak-kecil) 0 0;
+  padding: 0;
+}
+
+.menu a {
+  color: var(--warna-utama);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--warna-fokus);
+  outline-offset: 2px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: var(--jarak-sedang) 0 var(--jarak-kecil);
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background-color: var(--warna-utama);
+  margin-top: 0.25rem;
+}
+
+.daftar {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--jarak-sedang);
+  max-width: 480px;
+}
+
+.daftar li {
+  padding: var(--jarak-kecil) var(--jarak-sedang);
+}
+
+.daftar li:nth-child(even) {
+  background-color: #efe6d8;
+}
+
+.kartu {
+  position: relative;
+  background-color: var(--warna-kartu);
+  border: 1px solid var(--warna-utama);
+  padding: var(--jarak-sedang);
+  margin-bottom: var(--jarak-kecil);
+  max-width: 480px;
+}
+
+.kartu:hover {
+  background-color: #fffaf3;
+}
+
+.kartu.unggulan {
+  border-width: 2px;
+}
+
+.unggulan::before {
+  content: "★ ";
+  color: var(--warna-utama);
+}
+
+.label {
+  position: absolute;
+  top: var(--jarak-kecil);
+  right: var(--jarak-kecil);
+  background-color: var(--warna-utama);
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}

@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #f5efe6;
+  color: #3b2f2f;
+  margin: 0;
+  padding: 1rem;
+}
+
+#judul-utama {
+  font-size: 2.25rem;
+  color: #7a4a2b;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem;
+}
+
+.kartu {
+  background-color: #ffffff;
+  border: 1px solid #8a7360;
+  padding: 1rem;
+  max-width: 480px;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.unggulan {
+  border-color: #7a4a2b;
+  border-width: 2px;
+}
+
+p.unggulan {
+  font-style: italic;
+}
