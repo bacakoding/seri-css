@@ -33,7 +33,7 @@ h2 {
 
 .rak {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -46,7 +46,6 @@ h2 {
 }
 
 .kartu.unggulan {
-  grid-column: span 2;
   border-color: #7a4a2b;
   border-width: 2px;
 }
@@ -80,5 +79,13 @@ h2 {
 
   #judul-utama {
     font-size: 2.25rem;
+  }
+
+  .rak {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .kartu.unggulan {
+    grid-column: span 2;
   }
 }
